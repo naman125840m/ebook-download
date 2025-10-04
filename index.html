@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You for Your Purchase!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      max-width: 480px;
+      text-align: center;
+      animation: fadeIn 1.2s ease;
+    }
+    h1 {
+      color: #4facfe;
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 16px;
+      margin-bottom: 25px;
+    }
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: linear-gradient(135deg, #00f2fe, #4facfe);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transform: translateY(-2px);
+    }
+    .checkmark {
+      font-size: 60px;
+      color: #4facfe;
+      margin-bottom: 20px;
+      animation: bounce 1s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="checkmark">✅</div>
+    <h1>Payment Successful!</h1>
+    <p>Thank you for purchasing <strong>How to Download 
+Content — Practical & 
+Legal Guide</strong>.  
+       Click below to download your copy.</p>
+    <!-- Download Button -->
+    <a id="downloadBtn" class="btn">📥 Download eBook</a>
+  </div>
+
+  <script>
+    document.getElementById("downloadBtn").addEventListener("click", function() {
+      // Replace with your real eBook file link (must allow direct download)
+      const ebookUrl = "https://drive.google.com/file/d/1HqOqUWk-ZI8uE9tnKJyQFKUSRoCmoVR-/view?usp=sharing"; 
+
+      // Create hidden <a> element with download attribute
+      const link = document.createElement("a");
+      link.href = ebookUrl;
+      link.download = "ebook.pdf"; // force download name
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      // Close the tab after a short delay
+      setTimeout(() => {
+        window.close();
+      }, 1500); // wait 1.5s so download starts
+    });
+  </script>
+</body>
+</html>
